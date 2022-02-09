@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+
+}
+
+.title {
+    text-align: center;
+    padding: 10px;
+    font-weight: 200;
+    font-size: 50px;
+    letter-spacing: 3px;
+}
+
+.allTasks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.App .column {
+    width: 25%;
+    padding: 20px;
+}
+
+.add {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.btnadd {
+    width: 100px;
+    border-style: none;
+    background-color: orange;
+    color: white;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all 0.3s;
+}
+
+.addcol {
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    color: white;
+    font-size: 30px;
+    border-style: none;
+    border-radius: 50px;
+    padding-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.btnadd:hover,
+.addcol:hover {
+    background-color: rgb(228, 148, 0);
+}
+
+.taskname {
+    width: 300px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    background-color: rgb(216, 216, 216);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 0.3s;
+    padding-left: 10px;
+}
+
+.taskname:hover {
+    background-color: rgb(202, 202, 202);
+
+}
+
+.todotitle {
+    font-size: 30px;
+    font-weight: 250;
+    margin-bottom: 15px;
+}
+
+.droppable-col {
+    width: 100%;
+    background-color: rgb(219, 219, 219);
+    box-shadow: 2px 2px 5px 1px rgba(43, 43, 43, 0.2);
+    display: flex;
+    padding: 10px 10px 0 10px;
+    border-radius: 7px;
+    flex-direction: column;
+}
+
+.item {
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    font-size: 20px;
+    box-shadow: 5px 5px 10px rgba(43, 43, 43, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.delete {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.edit {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.delete:hover,
+.edit:hover {
+    background-color: rgb(235, 235, 235);
+}

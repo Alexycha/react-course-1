@@ -1,5 +1,6 @@
-# React course 1
+# Alexy CHALOPIN
 
+# React course 1
 ## Getting started
 
 - Fork project to your personal repo

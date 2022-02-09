@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#liste {
+  background-color: rgb(216, 216, 216);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
+
+.titleCard {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card {
+  margin-top: 10px;
+  background-color: rgb(236, 236, 236);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+.process,
+.todo,
+.completed {
+  width: 200px;
+}
