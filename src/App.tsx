@@ -27,11 +27,11 @@ function App() {
     const items: Item[] = [
         {
             id: v4(),
-            name: "Clean the house"
+            name: "Finir la filmographie de Godard"
         },
         {
             id: v4(),
-            name: "Tchatcher"
+            name: "Apprendre"
         }
     ]
 
@@ -54,7 +54,6 @@ function App() {
     const [text, setText] = useState('')
     const isEditable = false
 
-    //  const [newTitle, setNewTitle] = useState(title);
     const [state, setState] = useState<List[]>([
         todo, inProgress, done
     ])
@@ -143,22 +142,28 @@ function App() {
             }
         })
     }
-    const handleEdit = (itemId: string, newName: string, listId: string) => {
-        setState(
-            state.map(list => {
-                if (list.id === listId) {
-                    list.items.map(item => {
-                        if (item.id === itemId) {
-                            item.name = newName
-                            return item
+    const handleEdit = (id: string, name: string) => {
+        Swal.fire({
+            title: 'Modifier la tâche',
+            input: 'text',
+            inputValue: name,
+            showCancelButton: true,
+        }).then((result) => {
+            if (result.value) {
+                const newList: List[] = { ...state };
+
+                for (let i = 0; i < 3; i++) {
+                    newList[i].items = newList[i].items.map((item: Item) => {
+                        if (item.id === id) {
+                            item.name = result.value;
                         }
-                        return item
+                        return item;
                     });
-                    return list
                 }
-                return list
-            })
-        )
+
+                setState(newList);
+            }
+        })
     }
 
     return (
@@ -187,16 +192,14 @@ function App() {
                                                         <Draggable key={el.id} index={index} draggableId={el.id}>
                                                             {(provided) => {
                                                                 return (
-                                                                    <div className='item' /* contentEditable={isEditable} className={isEditable ? 'item' : ''}
-                                                                        onInput={e => setNewTitle(e.currentTarget.innerText)}
-                                                                        suppressContentEditableWarning={true} */
+                                                                    <div className='item'
                                                                         ref={provided.innerRef}
                                                                         {...provided.draggableProps}
                                                                         {...provided.dragHandleProps}
                                                                     >
                                                                         {el.name}
                                                                         <div className='operations'>
-                                                                            <button /* onClick={() => setIsEditable(!isEditable)} */ className='edit'><img src={'./edit.png'}></img></button>
+                                                                            <button onClick={() => handleEdit(el.id, el.name)} className='edit'><img src={'./edit.png'}></img></button>
                                                                             <button onClick={() => handleDelete(el.id)} className='delete'><img src={'./delete.png'}></img></button>
                                                                         </div>
                                                                     </div>
@@ -221,7 +224,4 @@ function App() {
 }
 export default App;
 
-function setNewTitle(innerText: string): void {
-    throw new Error('Function not implemented.');
-}
 
